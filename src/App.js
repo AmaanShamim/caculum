@@ -1,16 +1,16 @@
-import './App.css';
-import Navbar from './Components/Navbar';
+import "./App.css";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <>
       <Navbar />
-      <div className='calculator-grid'>
-        <div className='output'>
-          <div className='previous-value'></div>
-          <div className='current-value'></div>
+      <div className="calculator-grid">
+        <div className="output">
+          <div className="previous-value">123456789*</div>
+          <div className="current-value">123456789</div>
         </div>
-        <button className='two-span'>AC</button>
+        <button className="two-span">AC</button>
         <button>DEL</button>
         <button>÷</button>
         <button>1</button>
@@ -27,7 +27,10 @@ function App() {
         <button>-</button>
         <button>.</button>
         <button>0</button>
-        <button className='two-span'>=</button>
+        <button className="two-span">=</button>
+      </div>
+      <div id="tribute">
+        <p>by Amaan Shamim Khan</p>
       </div>
     </>
   );
