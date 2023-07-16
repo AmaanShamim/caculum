@@ -8,7 +8,7 @@ function App() {
       <Navbar />
       <Calculator />
       <div id="tribute">
-        <p>by Amaan Shamim Khan</p>
+        <p>Designed by <b>Amaan Shamim Khan</b></p>
       </div>
     </>
   );

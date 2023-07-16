@@ -3,6 +3,11 @@
   src: url("../src/Fonts/Satisfy-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "digital-7";
+  src: url("../src/Fonts/digital-7.ttf") format("truetype");
+}
+
 *,
 *::before,
 *::after {
@@ -48,14 +53,15 @@ body {
 }
 
 .output {
+  font-family: 'digital-7';
   grid-column: 1/ -1;
   background-color: #000000b0;
   padding: 0.8rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   word-wrap: break-word;
   word-break: break-all;
+  text-align: end;
 }
 
 .output .previous-value {
