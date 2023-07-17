@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/caculum/static/css/main.8a6516aa.css",
+    "main.js": "/caculum/static/js/main.33106491.js",
+    "static/js/787.f67269a2.chunk.js": "/caculum/static/js/787.f67269a2.chunk.js",
+    "static/media/Satisfy-Regular.ttf": "/caculum/static/media/Satisfy-Regular.32a6713537cf5e1e82f2.ttf",
+    "static/media/digital-7.ttf": "/caculum/static/media/digital-7.79c8511a32aab83743b7.ttf",
+    "index.html": "/caculum/index.html",
+    "main.8a6516aa.css.map": "/caculum/static/css/main.8a6516aa.css.map",
+    "main.33106491.js.map": "/caculum/static/js/main.33106491.js.map",
+    "787.f67269a2.chunk.js.map": "/caculum/static/js/787.f67269a2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a6516aa.css",
+    "static/js/main.33106491.js"
+  ]
+}
