@@ -21,6 +21,12 @@ function reducer(state, { type, payload }) {
         };
       }
       if (payload.digit === "0" && state.currentValue === "0") return state;
+      if (payload.digit == '.' && state.currentValue == null){
+        return {
+          ...state,
+          currentValue: `0${payload.digit}`,
+        }
+      }
       if (payload.digit === "." && state.currentValue.includes("."))
         return state;
       return {
@@ -28,8 +34,19 @@ function reducer(state, { type, payload }) {
         currentValue: `${state.currentValue || ""}${payload.digit}`,
       };
     case ACTIONS.CHOOSE_OPERATION:
-      if (state.currentValue === null && state.previousValue === null)
-      return state;
+      if (state.currentValue == null && state.previousValue == null && payload.operation == '-')
+        return {
+          ...state,
+          currentValue: payload.operation
+      }
+      if (state.currentValue==null&&state.operation!=null&&state.previousValue!=null&&payload.operation=='-'){
+        return {
+          ...state,
+          currentValue: payload.operation
+        }
+      }
+      if (state.currentValue == null && state.previousValue == null)
+        return state;
       if (state.previousValue == null) {
         return {
           ...state,
@@ -38,7 +55,7 @@ function reducer(state, { type, payload }) {
           currentValue: null,
         };
       }
-      if (state.currentValue === null) {
+      if (state.currentValue == null) {
         return {
           ...state,
           operation: payload.operation,
@@ -85,7 +102,7 @@ function reducer(state, { type, payload }) {
         ...state,
         currentValue: state.currentValue.slice(0, -1),
       };
-    }
+  }
 }
 
 function evaluate({ currentValue, previousValue, operation }) {
@@ -110,27 +127,27 @@ function evaluate({ currentValue, previousValue, operation }) {
   return result.toString();
 }
 
-const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
-  maximumFractionDigits: 0,
-});
-function formatter(value) {
-  if (value == null) return "";
-  const [interger, decimal] = value.split(".");
-  if (decimal == null) return INTEGER_FORMATTER.format(interger);
-  return `${INTEGER_FORMATTER.format(interger)}.${decimal}`;
-}
+// const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+//   maximumFractionDigits: 0,
+// });
+// function formatter(value) {
+//   if (value == null) return "";
+//   const [interger, decimal] = value.split(".");
+//   if (decimal == null) return INTEGER_FORMATTER.format(interger);
+//   return `${INTEGER_FORMATTER.format(interger)}.${decimal}`;
+// }
 
 export default function Calculator() {
-  const [{ currentValue = '0', previousValue, operation }, dispatch] =
+  const [{ currentValue='0', previousValue, operation }, dispatch] =
     useReducer(reducer, {});
 
   return (
     <div className="calculator-grid">
       <div id="display" className="output">
         <div className="previous-value">
-          {formatter(previousValue)} {operation}
+          {previousValue} {operation}
         </div>
-        <div className="current-value">{formatter(currentValue)}</div>
+        <div className="current-value">{currentValue}</div>
       </div>
       <button
         id="clear"
